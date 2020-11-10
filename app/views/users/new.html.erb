@@ -1,0 +1,72 @@
+<%= form_for(@user, local: true) do |f| %>
+
+<div class="container bg-warning text-center w-75 mt-2">
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h4 class="pt-2"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
+
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li class="list-group-item bg-warning border-0"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+  <div class="container text-center mt-5">
+
+    <h1 class="mb-4">Sign Up for free!!</h1>
+
+    <div class="row">
+  	 <div class="col-md-4 mx-auto">
+  		<div class="myform form ">
+
+ <div class="card w-100">
+     <div class="card-header p-0">
+         <div class="light-red text-white text-center py-2">
+             <i class="fas fa-sign-in-alt fa-2x"></i>
+         </div>
+     </div>
+
+     <div class="card-body p-3">
+
+       <div class="form-group">
+           <div class="input-group mb-2">
+               <div class="input-group-prepend">
+                   <div class="input-group-text"><i class="fas fa-sort-alpha-down text-info"></i></div>
+               </div>
+               <%= f.text_field :username, autofocus: true, autocomplete: "name",class:"form-control",id:"name",placeholder:"username" %>
+           </div>
+       </div>
+
+         <div class="form-group">
+             <div class="input-group mb-2">
+                 <div class="input-group-prepend">
+                     <div class="input-group-text"><i class="fas fa-key text-info"></i></div>
+                 </div>
+                 <%= f.password_field :password, autocomplete: "new-password",class:"form-control",placeholder:"Enter your Password" %>
+             </div>
+         </div>
+
+         <div class="form-group">
+             <div class="input-group mb-2">
+                 <div class="input-group-prepend">
+                     <div class="input-group-text"><i class="fas fa-key text-info"></i></div>
+                 </div>
+                 <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control",placeholder:"Re-enter password" %>
+             </div>
+         </div>
+
+         <div class="text-center">
+           <%= f.submit "Sign up",class:"btn light-red btn-block text-white rounded-0 py-2" %>
+         </div>
+
+     </div>
+
+ </div>
+<% end %>
+  		</div>
+  	 </div>
+    </div>
+  </div>

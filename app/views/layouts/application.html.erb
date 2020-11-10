@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PrivateEvents</title>
+    <title>Private-Events</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,33 @@
   </head>
 
   <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light light-red">
+    <h4 class="text-white">Private Events <i class="fas fa-calendar-alt"></i></h4>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav m-auto">
+      <li class="nav-item mr-4">
+        <i class="fas fa-home text-white mr-1"></i><%= link_to 'Home', events_path,class:"text-white" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+        <li>
+          <% display_buttons.each do |button|%>
+            <%= button%>
+          <%end%>
+          </li>
+    </ul>
+  </div>
+</nav>
+
+
     <%= yield %>
   </body>
 </html>
