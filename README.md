@@ -65,5 +65,5 @@ Contributions, issues and feature requests are welcome!
 
 Give a ⭐️ if you like this project!
 
-## Copyrights
+## Copyright
 This is a project developed by Microverse Student as the part of skill curriculum.
