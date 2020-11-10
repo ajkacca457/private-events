@@ -1,0 +1,4 @@
+class Attendance < ApplicationRecord
+
+
+end 
