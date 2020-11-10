@@ -1,0 +1,72 @@
+<div class="container">
+
+<h1 class="text-center my-4 border-bottom-2 border-danger">Events History</h1>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h4 class="p-2 bg-secondary w-50 mx-auto mb-2 text-center text-white">Events you created:<%= events_created.count%></h4>
+    <% events_created.order('created_at DESC').each do |event|%>
+    <div class="col-sm-12">
+            <%= link_to event_path(event), class:'text-decoration-none' do%>
+            <div class="card light-red mb-4 text-center">
+              <div class="card-title text-white py-2">
+                  <p class="h4">Event Title:- <%= event.title%></p>
+              </div>
+              <div class="card-footer bg-light text-dark px-2">
+                <p class="h5">Event Date:- <%= event.date%></p>
+              </div>
+            </div>
+
+            <%end%>
+    </div>
+    <%end%>
+  </div>
+
+
+  <div class="col-sm-6">
+    <h4 class="p-2 bg-secondary w-50 mx-auto mb-2 text-center text-white">upcoming Events: <%= events_attendance.where('date>?', Time.now).count%></h4>
+    <% events_attendance.where('date>?', Time.now).each do |event|%>
+    <div class="col-sm-12">
+            <%= link_to event_path(event), class:'text-decoration-none' do%>
+            <div class="card mb-4 py-4 hover-1 text-center light-red">
+              <div class="card-title text-white pb-2">
+                  <p class="h4">Event Title:-  <%= event.title%></p>
+              </div>
+              <div class="card-footer bg-light text-dark px-2">
+                <p class="h5">Event Date:- <%= event.date%></p>
+              </div>
+              <div class="mt-3">
+                <% user_attending?(event.id).each do |button| %>
+                  <%= button%>
+                <%end%>
+              </div>
+            </div>
+
+            <%end%>
+    </div>
+    <%end%>
+  </div>
+</div>
+
+
+<div class="row">
+    <h4 class="p-2 bg-secondary w-75 mx-auto mb-2 text-center text-white">Previously attended events: <%= events_attendance.where('date<?', Time.now).count%></h4>
+    <% events_attendance.where('date<?', Time.now).each do |event|%>
+    <div class="col-sm-12 col-md-6">
+            <%= link_to event_path(event), class:'text-decoration-none' do%>
+            <div class="card light-red mb-4 text-center">
+              <div class="card-title text-white py-2">
+                  <p class="h4">Event Title:- <%= event.title%></p>
+              </div>
+              <div class="card-footer bg-light text-dark px-2">
+                <p class="h5">Event Date:- <%= event.date%></p>
+              </div>
+            </div>
+
+            <%end%>
+    </div>
+  <%end%>
+</div>
+
+
+</div>

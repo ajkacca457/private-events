@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
-  @event=Event.new
+  @event = Event.new
 
   before_action :authorization
   helper_method :events_user_attending, :test
 
   def index
-    @events=Event.all
+    @events = Event.all
     @past_events = Event.past.paginate(page: params[:page], per_page: 2).order(created_at: :desc)
     @upcoming_events = Event.upcoming.paginate(page: params[:page], per_page: 2).order(created_at: :desc)
   end
@@ -32,6 +32,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :description, :date)
   end
-
-
 end
