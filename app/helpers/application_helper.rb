@@ -12,7 +12,7 @@ module ApplicationHelper
       buttons.push(link_to('Login', login_path,
                            class: 'text-dark  mr-2 bg-warning py-1 px-2'))
       buttons.push(link_to('Sign Up', new_user_path,
-                           class: 'text-dark mr-2 bg-warning py-1 px-2'))
+                           class: 'text-dark mr-2 bg-warning py-1 px-2 btn-link'))
     end
     buttons
   end
