@@ -1,5 +1,4 @@
 class Event < ApplicationRecord
-
   validates :title, :description, :date, presence: true
   belongs_to :creator, class_name: 'User', foreign_key: :user_id
   has_many :attendances, dependent: :destroy
@@ -7,5 +6,4 @@ class Event < ApplicationRecord
 
   scope :past, -> { where('date<?', Time.now).order('created_at DESc') }
   scope :upcoming, -> { where('date>?', Time.now).order('created_at DESc') }
-
 end

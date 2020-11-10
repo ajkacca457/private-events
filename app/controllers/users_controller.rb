@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :authorization, only: [:show]
   def new
     @user = User.new
@@ -23,5 +22,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation)
   end
-
 end
