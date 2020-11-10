@@ -41,7 +41,7 @@ $ cd <folder>
 ```
 
 ```bash
-$ git clone `https://github.com/ajkacca457/members_only.git`
+$ git clone `https://github.com/ajkacca457/private-events.git`
 $ cd private-events
 $ bundle install
 $ yarn install --check-files if yarn is not updated
