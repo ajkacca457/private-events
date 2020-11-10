@@ -13,11 +13,6 @@
         </div>
         <div class="card-footer light-red text-dark px-2">
           <p class="text-white">Event Date: <%= event.date%></p>
-        <div class="mt-3">
-          <% user_attending?(event.id).each do |button| %>
-            <%= button%>
-          <%end%>
-        </div>
       </div>
   </div>
       <%end%>
