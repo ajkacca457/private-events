@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.valid? && @user.save
-      redirect_to new_session_path, notice: 'Sign up successful, login using your credentials'
+      redirect_to login_path, notice: 'Sign up successful, login using your credentials'
     else
       render 'new'
     end
