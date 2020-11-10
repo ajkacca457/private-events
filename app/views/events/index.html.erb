@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 class="text-center normal my-3 bg-secondary w-50 mx-auto py-2 text-white">
+    Upcoming events: <%=pluralize(@upcoming_events.count, 'Event')%>
+  </h1>
+<div class="row">
+  <%= render "futureevents"%>
+  <div class="digg_pagination w-75 m-auto text-center">
+  <%= will_paginate @upcoming_events%>
+  </div>
+  </div>
+
+
+  <h1 class="text-center normal my-3 bg-secondary w-50 mx-auto py-2 text-white">
+    Past events: <%=pluralize(@past_events.count, 'Event')%>
+  </h1>
+  <div class="row">
+    <%=render "pastevents" %>
+    <div class="digg_pagination w-75 m-auto text-center">
+    <%= will_paginate @past_events%>
+    </div>
+</div>
+
+</div>

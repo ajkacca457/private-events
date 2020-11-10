@@ -1,0 +1,25 @@
+<%@upcoming_events.each do |event|%>
+<div class="col-sm-12 col-md-6">
+      <%= link_to event_path(event), class:'text-decoration-none' do%>
+      <div class="card bg-light mb-4 hover-1">
+        <div class="card-title text-dark light-red">
+          <div class="text-white px-2 py-1 d-flex justify-content-between align-items-center">
+            <h4><%= event.title.capitalize%></h4>
+            <p>Creator : <%=event.creator.username%></p>
+          </div>
+        </div>
+        <div class="card-body bg-light text-dark px-0">
+          <p class="text-justify px-2"><%=event.description%></p>
+        </div>
+        <div class="card-footer text-dark px-2 light-red">
+          <p class="text-white">Event Date: <%= event.date%></p>
+        <div class="mt-3">
+          <% user_attending?(event.id).each do |button| %>
+            <%= button%>
+          <%end%>
+        </div>
+      </div>
+  </div>
+      <%end%>
+</div>
+<%end%>
