@@ -1,0 +1,45 @@
+
+<% flash.each do |type, msg| %>
+  <div>
+    <h3 class="light-red p-2 text-center w-50 my-2 mx-auto text-white"><%= msg%></h3>
+  </div>
+<% end %>
+
+<div class="container mt-4 w-50">
+<%= form_for(:session, :html => {class:"form-horizontal", role:"form", url:login_path} ) do |f| %>
+<div class="card w-100">
+<div class="card-header p-0">
+ <div class="light-red text-white text-center py-2">
+     <i class="fas fa-sign-in-alt fa-2x"></i> <h3>Login to see all the events</h3>
+ </div>
+</div>
+
+<div class="card-body p-3">
+
+ <div class="form-group">
+     <div class="input-group mb-2">
+         <div class="input-group-prepend">
+             <div class="input-group-text"><i class="fas fa-user-circle text-info"></i></div>
+         </div>
+         <%= f.text_field :username, autofocus: true, autocomplete: "username",class:"form-control",id:"username",placeholder:"Username" %>
+     </div>
+ </div>
+
+ <div class="form-group">
+     <div class="input-group mb-2">
+         <div class="input-group-prepend">
+             <div class="input-group-text"><i class="fas fa-key text-info"></i></div>
+         </div>
+         <%= f.password_field :password, autocomplete: "password",class:"form-control",placeholder:"Enter your Password" %>
+     </div>
+ </div>
+
+ <div class="text-center">
+   <%= f.submit "Log In",class:"btn light-red text-white btn-block rounded-0 py-2" %>
+ </div>
+
+</div>
+
+</div>
+<% end %>
+</div>
